@@ -1,16 +1,13 @@
 package com.example.demo_api.util;
 
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.Keys;
 
 import javax.crypto.SecretKey;
-import java.security.Key;
 import java.util.Date;
 
 public class JwtUtil {
 
-    private static final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    private static final SecretKey key = Jwts.SIG.HS256.key().build();
 
     public static String generateToken(String username) {
         return Jwts.builder()
